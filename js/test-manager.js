@@ -24,7 +24,6 @@ let deleteIndex = null; // Vị trí bài test cần xóa
 let currentPage = 1;
 const totalPerpage = 3;
 
-
 document.addEventListener('DOMContentLoaded',function(){
     const logOut = document.querySelector("#logOut");
     const checkLogin = JSON.parse(localStorage.getItem("checkLogin")) || 0;
