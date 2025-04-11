@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../assets/images/web-test-logo.png" type="image/x-icon" />
+    <title>Quản lý danh mục</title>
+    <link rel="stylesheet" href="../css/category-manager.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="header-content">
+          <div class="header-left">
+            <h3 class="title">QuizzForge</h3>
+          </div>
+          <div class="header-right">
+            <a href="" class="category">Danh mục</a>
+            <a href="../pages/test-manager.html">Bài test</a>
+            <a id="logOut" href="../pages/login.html">Đăng xuất</a>
+          </div>
+        </div>
+      </header>
+      <div id="form-category" class="overlay">
+        <form action="">
+          <div class="block-head-title">
+            <p class="title-overlay">Thêm danh mục</p>
+            <ion-icon
+              id="icon-close"
+              class="icon-close"
+              name="close-outline"
+            ></ion-icon>
+          </div>
+          <div class="main-form">
+            <div>
+              <label for="" class="name-category">Tên danh mục</label>
+            </div>
+            <input
+              id="input-name-category"
+              class="input-name-category"
+              type="text"
+            />
+            <p id="error-name-category" class="error-name-category"></p>
+            <div>
+              <label for="" class="emoji">Emoji</label>
+            </div>
+            <input id="input-emoji" class="input-emoji" type="text" />
+            <p id="error-emoji" class="error-emoji"></p>
+          </div>
+          <div class="btn-form">
+            <button id="btn-cancel" class="btn-cancel">Hủy</button>
+            <button id="btn-save" class="btn-save">Lưu</button>
+          </div>
+        </form>  
+    </div>
+    <div id="form-category-fix" class="overlay-fix">
+      <form action="">
+        <div class="block-head-title-fix">
+          <p class="title-overlay-fix">Sửa danh mục</p>
+          <ion-icon
+            id="icon-close-fix"
+            class="icon-close-fix"
+            name="close-outline"
+          ></ion-icon>
+        </div>
+        <div class="main-form-fix">
+          <div>
+            <label for="" class="name-category-fix">Tên danh mục</label>
+          </div>
+          <input
+            id="input-name-category-fix"
+            class="input-name-category-fix"
+            type="text"
+          />
+          <p id="error-name-category-fix" class="error-name-category-fix"></p>
+          <div>
+            <label for="" class="emoji-fix">Emoji</label>
+          </div>
+          <input id="input-emoji-fix" class="input-emoji-fix" type="text" />
+          <p id="error-emoji-fix" class="error-emoji-fix"></p>
+        </div>
+        <div class="btn-form-fix">
+          <button id="btn-cancel-fix" class="btn-cancel-fix">Hủy</button>
+          <button id="btn-save-fix" class="btn-save-fix">Lưu</button>
+        </div>
+      </form>
+  </div>
+  <div id="overlay-delete" class="overlay-delete">
+    <form action="" id="form-overlay-delete" class="form-overlay-delete">
+      <div class="head-delete">
+        <p class="confirm-delete">Xác nhận xóa</p>
+        <ion-icon
+          id="icon-close-delete"
+          class="icon-close-delete"
+          name="close-outline"
+        ></ion-icon>
+      </div>
+      <p class="paragraph-confirm-delete">
+        Bạn chắc chắn muốn xóa danh mục này ?
+      </p>
+      <div class="btn-form-footer-delete">
+        <button id="btn-cancel-delete" class="btn-cancel-delete">Hủy</button>
+        <button id="btn-delete-form-delete" class="btn-delete-form-delete">Xóa</button>
+      </div>
+    </form>
+  </div>
+    <main class="main">
+      <div class="content-main">
+        <div>
+          <h2 class="title-content-main">Quản lý danh mục</h2>
+          <button id="btn-add" class="btn-add">Thêm danh mục</button>
+        </div>
+        <table>
+          <thead>
+            <th class="th-id">ID</th>
+            <th class="th-name">Tên danh mục</th>
+            <th class="th-act">Hành động</th>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+      <div class="pagination">
+        <button id="page-btn-back" class="page-btn-back">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </button>
+        <div id="btn-pages">
+
+        </div>
+        <button id="page-btn-next" class="page-btn-next">
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </button>
+      </div>
+    </main>
+    <footer class="footer">
+      <p class="copyright">© 2025 QuizForge. All rights reserved.</p>
+    </footer>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="../js/categoty-manager.js"></script>
+  </body>
+</html>
