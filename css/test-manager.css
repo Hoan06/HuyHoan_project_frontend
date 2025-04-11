@@ -416,3 +416,7 @@ tbody tr:nth-child(even) {
 .btn-delete-form:hover {
     background-color: #b71b2b;
 }
+
+.active {
+    color: #b8b7b7;
+}

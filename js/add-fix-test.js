@@ -319,11 +319,20 @@ const categoryWithEmoji = selectCategory ? `${selectCategory.emoji} ${selectCate
   };
 
   if (editIndex !== null) {
+    
     testList[editIndex] = newTest;
     localStorage.setItem("testList", JSON.stringify(testList));
-    alert("Đã cập nhật bài test!");
-    window.location.href = '../pages/test-manager.html';
+
     resetTestForm();
+    Swal.fire({
+      icon: "success",
+      title: "Đã cập nhật bài test thành công",
+      text: "Chúc mừng bạn đã cập nhật bài test thành công!",
+      timer: 1500, 
+      showConfirmButton: false 
+  }).then(() => {
+      window.location.href = '../pages/test-manager.html'; 
+  });
   } else {
     testList.push(newTest);
     localStorage.setItem("testList",JSON.stringify(testList));
