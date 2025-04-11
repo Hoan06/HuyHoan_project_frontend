@@ -103,7 +103,7 @@ function startTime() {
                 const userAnswer = userAnswers[index];
                 const correctAnswer = question.correct;
 
-                if (userAnswer !== -1 && userAnswer.correct === correctAnswer){
+                if (userAnswer !== -1 && userAnswer === correctAnswer){
                     correctCount++;
                 }
             });
@@ -167,9 +167,9 @@ btnFinish.addEventListener('click',function(){
     const totalQuestion = currentTest.questions.length;
     currentTest.questions.forEach((question,index) => {
         const userAnswer = userAnswers[index];
-        const correctAnswer = question.correct;
+        const correctAnswer = question.answers.findIndex(answer => answer.correct === true);
 
-        if (userAnswer !== -1 && userAnswer.correct === correctAnswer){
+        if (userAnswer !== -1 && userAnswer === correctAnswer){
             correctCount++;
         }
     });

@@ -8,7 +8,9 @@ const checkLogin = JSON.parse(localStorage.getItem("checkLogin")) || 0;
 
 if (checkLogin === 1){
     window.location.replace("../pages/dashboard.html");
-};
+} else if (checkLogin === 2){
+    window.history.back();
+}
 
 function clearError(input, errorElement) {
     input.addEventListener("input", function () {
@@ -43,7 +45,7 @@ if (check) {
     }).then(() => {
         if (check.email === "admin@gmail.com") {
             window.location.replace("../pages/category-manager.html");
-            localStorage.setItem("checkLogin",1);
+            localStorage.setItem("checkLogin",2);
         } else {
             window.location.replace("../pages/dashboard.html");
             localStorage.setItem("checkLogin",1);

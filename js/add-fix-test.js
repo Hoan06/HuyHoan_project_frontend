@@ -35,6 +35,15 @@ const editIndex = urlParams.get('index'); // lấy giá trị index được tru
 // Thêm option cho select về danh mục
 const testCategorySelect = document.querySelector("#select-info");
 
+document.addEventListener('DOMContentLoaded',function(){
+  const logOut = document.querySelector("#logOut");
+  const checkLogin = JSON.parse(localStorage.getItem("checkLogin")) || 0;
+
+  if (checkLogin !== 1 && checkLogin !== 2){
+      window.location.href = "../pages/login.html";
+  }
+});
+
 /**
  * categoryList : danh sách các danh mục để hiển thị vào trong select 
  */
@@ -394,3 +403,6 @@ tbody.addEventListener("click", function (e) {
   }
 });
 
+logOut.addEventListener('click',function(){
+  localStorage.setItem("checkLogin",0);
+});

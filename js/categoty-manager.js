@@ -43,11 +43,11 @@ const btnNextElement = document.querySelector("#page-btn-next");
 document.addEventListener('DOMContentLoaded',function(){
     const logOut = document.querySelector("#logOut");
     const checkLogin = JSON.parse(localStorage.getItem("checkLogin")) || 0;
-
-    if (checkLogin !== 1){
+  
+    if (checkLogin !== 1 && checkLogin !== 2){
         window.location.href = "../pages/login.html";
     }
-});
+  });
 
 
 

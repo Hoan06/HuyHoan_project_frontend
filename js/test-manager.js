@@ -25,6 +25,15 @@ let currentPage = 1;
 const totalPerpage = 3;
 
 
+document.addEventListener('DOMContentLoaded',function(){
+    const logOut = document.querySelector("#logOut");
+    const checkLogin = JSON.parse(localStorage.getItem("checkLogin")) || 0;
+
+    if (checkLogin !== 1 && checkLogin !== 2){
+        window.location.href = "../pages/login.html";
+    }
+});
+
 
 // Hàm render các nút 
 const renderPages = () => {
@@ -208,4 +217,8 @@ btnCancelForm.addEventListener("click",function(){
 
 btnAddTest.addEventListener('click',function(){
     window.location.href = "../pages/add-fix-test.html";
+});
+
+logOut.addEventListener('click',function(){
+    localStorage.setItem("checkLogin",0);
 });
