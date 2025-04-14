@@ -47,6 +47,10 @@ a:hover {
     color: #b8b7b7;
 }
 
+.header-right .active {
+    color: #b8b7b7; /* Màu hover bạn muốn giữ */
+}
+
 .header-right  {
     display: flex;
     gap: 52px;

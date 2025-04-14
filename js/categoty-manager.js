@@ -39,7 +39,6 @@ const btnPagesElement = document.querySelector("#btn-pages");
 const btnBackElement = document.querySelector("#page-btn-back");
 const btnNextElement = document.querySelector("#page-btn-next");
 
-
 document.addEventListener('DOMContentLoaded',function(){
     const logOut = document.querySelector("#logOut");
     const checkLogin = JSON.parse(localStorage.getItem("checkLogin")) || 0;
@@ -47,6 +46,9 @@ document.addEventListener('DOMContentLoaded',function(){
     if (checkLogin !== 1 && checkLogin !== 2){
         window.location.href = "../pages/login.html";
     }
+
+    const categoryLink = document.querySelector("#category");
+    categoryLink.classList.add("active");
   });
 
 
@@ -133,39 +135,40 @@ clearError(inputEmojiFix, errorEmojiFix);
 
 function renderCategory() {
     tbody.innerHTML = "";
-
     const getStartIndex = (currentPages - 1) * totalPerpage;
     const getEndIndex = totalPerpage * currentPages;
+    const categorySlices = categoryList.slice(getStartIndex, getEndIndex);
 
-    const categorySlices = categoryList.slice(getStartIndex,getEndIndex);
-
-    categorySlices.forEach((item,index) => {
+    categorySlices.forEach((item, index) => {
         let tr = document.createElement("tr");
         const globalIndex = getStartIndex + index + 1;
+        const realIndex = getStartIndex + index; 
         tr.innerHTML = `
-        <td class="td-id">${globalIndex}</td>
-        <td class="td-name">${item.emoji}${item.name}</td>
-        <td class="td-act">
-            <button id="btn-fix" class="btn-fix" data-index=${index}>Sửa</button>
-            <button id="btn-delete" class="btn-delete" data-index=${index}>Xóa</button>
-        </td>
+            <td class="td-id">${globalIndex}</td>
+            <td class="td-name">${item.emoji}${item.name}</td>
+            <td class="td-act">
+                <button id="btn-fix" class="btn-fix" data-index="${realIndex}">Sửa</button>
+                <button id="btn-delete" class="btn-delete" data-index="${realIndex}">Xóa</button>
+            </td>
         `;
         tbody.appendChild(tr);
     });
 
     document.querySelectorAll('.btn-fix').forEach(btn => {
         btn.addEventListener('click', function() {
-            const index = this.getAttribute('data-index');
+            const index = parseInt(this.getAttribute('data-index'));
             openEditForm(index);
         });
     });
-    document.querySelectorAll('.btn-delete').forEach((btn,index) => {
+
+    document.querySelectorAll('.btn-delete').forEach(btn => {
         btn.addEventListener('click', function() {
             overlayFormDelete.style.display = "flex";
-            const indexDelete = this.getAttribute("data-index");
-            overlayFormDelete.setAttribute("data-index",indexDelete);
+            const indexDelete = parseInt(this.getAttribute("data-index"));
+            overlayFormDelete.setAttribute("data-index", indexDelete);
         });
     });
+
     renderPages();
 }
 
@@ -207,7 +210,7 @@ btnSave.addEventListener('click',function(){
         return;
     }
 
-    categoryList.push({name : inputNameCategory.value,
+    categoryList.unshift({name : inputNameCategory.value,
         emoji : inputEmoji.value
     })
     localStorage.setItem("categoryList",JSON.stringify(categoryList));  

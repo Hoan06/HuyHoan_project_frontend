@@ -31,6 +31,9 @@ document.addEventListener('DOMContentLoaded',function(){
     if (checkLogin !== 1 && checkLogin !== 2){
         window.location.href = "../pages/login.html";
     }
+
+    const testLink = document.querySelector("#pageTest");
+    testLink.classList.add("active");
 });
 
 
