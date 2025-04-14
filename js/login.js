@@ -22,18 +22,23 @@ function clearError(input, errorElement) {
 clearError(inputEmail, errorEmail);
 clearError(inputPassword, errorPassword);
 
+let flag = true;
+
 btn.addEventListener('click',function(){
     event.preventDefault();
     if (!inputEmail.value.trim()){
         errorEmail.textContent = "Email không được để trống";
         inputEmail.style.border = "2px solid red";
-        return;
+        flag = false;
     } 
     if (!inputPassword.value.trim()){
         errorPassword.textContent = "Password không được để trống";
         inputPassword.style.border = "2px solid red";
-        return;
+        flag = false;
     } 
+    if (flag === false){
+        return;
+    }
     const check = emailList.find((user)=> 
         user.email === inputEmail.value && user.password === inputPassword.value);
 if (check) {

@@ -30,37 +30,34 @@ btn.addEventListener('click',function(){
         errorName.textContent = "Tên không được để trống";
         inputName.style.border = "2px solid red";
         flag = false;
-        return;
     } 
     if(!inputEmail.value.trim()){
         errorEmail.textContent = "Email không được để trống";
         inputEmail.style.border = "2px solid red";
         flag = false;
-        return;
     }
     const check = emailList.some((user)=> user.email === inputEmail.value);
     if (check){
         errorEmail.textContent = "Email đã tồn tại rồi";
         inputEmail.style.border = "2px solid red";
         flag = false;
-        return;
     }
     if (!inputPassword.value.trim()){
         errorPassword.textContent = "Password không được để trống";
         inputPassword.style.border = "2px solid red";
         flag = false;
-        return;
     }
     if (inputPassword.value.length < 8){
         errorPassword.textContent = "Password tối thiểu 8 ký tự";
         inputPassword.style.border = "2px solid red";
         flag = false;
-        return;
     }
     if (inputPassword.value !== inputPasswordCheck.value){
         errorPasswordCheck.textContent = "Password không trùng khớp";
         inputPasswordCheck.style.border = "2px solid red";
         flag = false;
+    }
+    if (flag === false){
         return;
     }
     emailList.push({

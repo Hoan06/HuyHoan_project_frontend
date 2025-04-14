@@ -127,7 +127,8 @@ if (editIndex !== null) {
       newQuestions.push(question);
   });
   renderCategoryDropdown(); // Gọi trước để tạo danh sách danh mục
-  categorySelect.value = test.category; 
+  const categoryName = test.category.split(' ').slice(1).join(' ');
+  categorySelect.value = categoryName; // Gán chỉ phần name
 } else {
   renderCategoryDropdown();
 }
@@ -260,6 +261,16 @@ btnSaveTest.addEventListener('click',function(){
       icon: "error",
         title: "Vui lòng nhập đầy đủ thông tin.",
   });
+    return;
+  }
+
+  const timeValue = Number(testTime);
+  if (!Number.isInteger(timeValue) || testTime.includes('.')) {
+    Swal.fire({
+      icon: "error",
+      title: "Thời gian không hợp lệ.",
+      text: "Vui lòng nhập một số nguyên.",
+    });
     return;
   }
 
